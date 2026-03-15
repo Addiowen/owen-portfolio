@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Light Mode (default) ── */
+:root {
+  --color-ink:         #0a0a0f;
+  --color-paper:       #f5f0e8;
+  --color-surface:     #ffffff;
+  --color-surface-alt: #f0ebe0;   /* light warm grey — used for alternate sections */
+  --color-on-alt:      #0a0a0f;   /* text on alt sections in light = dark */
+  --color-accent:      #c8a96e;
+  --color-accent2:     #7c6bc4;
+  --color-muted:       #6b6b7a;
+  --color-border:      #e2ddd5;
+  --color-card-border: rgba(0,0,0,0.08);
+  --color-skill-card:  rgba(0,0,0,0.03);
+  --color-skill-text:  rgba(0,0,0,0.6);
+  --color-divider:     rgba(0,0,0,0.08);
+}
+
+/* ── Dark Mode ── */
+.dark {
+  --color-ink:         #f0ece4;
+  --color-paper:       #0d0d14;
+  --color-surface:     #16161f;
+  --color-surface-alt: #111118;   /* dark — alternate sections */
+  --color-on-alt:      #f0ece4;   /* text on alt sections in dark = light */
+  --color-accent:      #d4b87a;
+  --color-accent2:     #9d8fe8;
+  --color-muted:       #8888a0;
+  --color-border:      #2a2a38;
+  --color-card-border: rgba(255,255,255,0.08);
+  --color-skill-card:  rgba(255,255,255,0.04);
+  --color-skill-text:  rgba(255,255,255,0.6);
+  --color-divider:     rgba(255,255,255,0.08);
+}
+
+/* ── Smooth theme transition ── */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color, box-shadow;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--color-accent); color: #0a0a0f; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-paper); }
+::-webkit-scrollbar-thumb { background: var(--color-accent); border-radius: 3px; }
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
