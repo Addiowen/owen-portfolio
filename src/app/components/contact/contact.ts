@@ -2,6 +2,7 @@ import { Component, signal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import emailjs from '@emailjs/browser';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-contact',
@@ -159,14 +160,15 @@ export class ContactComponent {
     this.loading.set(true);
     this.error.set('');
     try {
-      await emailjs.send('SERVICE_ID', 'TEMPLATE_ID', {
+      
+      await emailjs.send(environment.emailjs.serviceId, environment.emailjs.templateId, {
         from_name:  this.form.name,
         from_email: this.form.email,
         subject:    this.form.subject,
         budget:     this.form.budget,
         message:    this.form.message,
         to_email:   'owenoscar18@gmail.com',
-      }, 'PUBLIC_KEY');
+      }, environment.emailjs.publicKey);
       this.sent.set(true);
       this.form = { name: '', email: '', subject: '', budget: 'Select budget range', message: '' };
     } catch (err) {
