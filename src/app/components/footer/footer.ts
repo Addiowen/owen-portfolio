@@ -63,10 +63,12 @@ import { MatIconModule } from '@angular/material/icon';
           </div>
         </div>
 
-        <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 border-t" style="border-color:var(--color-divider)">
-          <p class="text-xs flex items-center gap-1" style="color:var(--color-muted)">
+        <div class="pt-8 border-t" style="border-color:var(--color-divider)">
+          <p class="text-xs flex flex-wrap items-center justify-center md:justify-start gap-1" style="color:var(--color-muted)">
             © {{ year }} Owen Oscar. Crafted with
-            <mat-icon class="text-red-400" style="font-size:12px;width:12px;height:12px;">favorite</mat-icon>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="#f87171" stroke="none" style="display:inline;flex-shrink:0;vertical-align:middle">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
             using Angular & Tailwind CSS.
           </p>
         </div>
